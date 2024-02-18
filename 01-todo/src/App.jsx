@@ -30,7 +30,7 @@ function App () {
   const handleNew = e => {
     e.preventDefault()
 
-    if (text.length > 3) {
+    if (text.length > 2) {
       const { randomUUID } = new ShortUniqueId({ length: 10 })
       setItems(prev => [
         {
