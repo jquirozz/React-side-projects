@@ -1,50 +1,49 @@
+import { useEffect, useState } from 'react'
 import ShortUniqueId from 'short-unique-id'
 
-import { useEffect, useState } from 'react'
 import ItemCard from './components/ItemCard'
 
 import './App.scss'
 import { FaPlus } from 'react-icons/fa'
 
 function App () {
-  const [first, setFirst] = useState(true)
+  const [loaded, setLoaded] = useState(false)
   const [items, setItems] = useState([])
   const [text, setText] = useState('')
+
+  useEffect(() => {
+    const localItems = window.localStorage.getItem('items')
+    if (localItems) {
+      setItems(JSON.parse(localItems))
+    }
+    setLoaded(true)
+  }, [])
+
+  useEffect(() => {
+    if (loaded) {
+      window.localStorage.setItem('items', JSON.stringify(items))
+    }
+  }, [items, loaded])
 
   const handleNew = e => {
     e.preventDefault()
     const { randomUUID } = new ShortUniqueId({ length: 10 })
 
-    const updatedItems = [...items]
-    updatedItems.unshift({
-      id: randomUUID(),
-      text,
-      isDone: false
-    })
-    setItems(updatedItems)
+    setItems(prev => [
+      {
+        id: randomUUID(),
+        text,
+        isDone: false
+      },
+      ...prev
+    ])
     setText('')
   }
-
-  // Get items to localStorage
-  useEffect(() => {
-    const localItems = window.localStorage.getItem('items')
-    if (localItems) {
-      setItems(JSON.parse(localItems))
-      setFirst(false)
-    }
-  }, [])
-
-  // Set items to localStorage
-  useEffect(() => {
-    if (!first) {
-      window.localStorage.setItem('items', JSON.stringify(items))
-    }
-  }, [items, first])
 
   return (
     <div className='App'>
       <header className='menu'>
-        <form onSubmit={e => handleNew(e)}>
+        <form onSubmit={handleNew}>
           <input
             type='text'
             value={text}
