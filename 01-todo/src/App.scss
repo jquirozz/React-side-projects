@@ -1,10 +1,5 @@
 @use "./index.scss" as *;
 
-#root {
-  @include flex-center;
-  background: #000;
-}
-
 .App {
   @include flex-center;
 
@@ -12,12 +7,16 @@
   padding: 1rem 0.5rem;
 
   width: 100%;
-  min-width: 270px;
   max-width: 400px;
-  min-height: 100dvh;
+  min-height: 100svh;
 
   .menu {
     width: 100%;
+
+    & h1 {
+      font-size: 4rem;
+    }
+    
     & form {
       display: flex;
       flex-wrap: wrap;
@@ -29,8 +28,6 @@
 
       border: 1px solid #222;
       border-radius: 5px;
-
-      background: #000;
 
       & input {
         flex: 1;
@@ -47,17 +44,20 @@
         justify-content: center;
 
         padding: 1rem;
-
         width: 4rem;
 
         cursor: pointer;
 
-        color: #fff;
+        color: #0af;
         background: #151515;
 
         & svg {
           font-size: 1.25rem;
         }
+      }
+
+      &:has(input:focus) {
+        border: 1px solid #333;
       }
     }
   }

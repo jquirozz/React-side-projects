@@ -11,6 +11,7 @@ function App () {
   const [items, setItems] = useState([])
   const [text, setText] = useState('')
 
+  // get items to localStorage
   useEffect(() => {
     const localItems = window.localStorage.getItem('items')
     if (localItems) {
@@ -19,6 +20,7 @@ function App () {
     setLoaded(true)
   }, [])
 
+  // set items to localStorage
   useEffect(() => {
     if (loaded) {
       window.localStorage.setItem('items', JSON.stringify(items))
@@ -27,17 +29,19 @@ function App () {
 
   const handleNew = e => {
     e.preventDefault()
-    const { randomUUID } = new ShortUniqueId({ length: 10 })
 
-    setItems(prev => [
-      {
-        id: randomUUID(),
-        text,
-        isDone: false
-      },
-      ...prev
-    ])
-    setText('')
+    if (text.length > 3) {
+      const { randomUUID } = new ShortUniqueId({ length: 10 })
+      setItems(prev => [
+        {
+          id: randomUUID(),
+          text,
+          isDone: false
+        },
+        ...prev
+      ])
+      setText('')
+    }
   }
 
   return (

@@ -1,6 +1,6 @@
 :root {
-  --main: #fff;
-  --sec: #000;
+  --main: #000;
+  --sec: #fff;
 }
 // SCSS Variables -> Better syntaxis
 $main: var(--main);
@@ -41,7 +41,9 @@ $sec: var(--sec);
 }
 
 body {
+  @include grid-center;
   color: $sec;
+  background: $main;
 }
 
 h1,
