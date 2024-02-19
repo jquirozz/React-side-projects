@@ -1,9 +1,11 @@
-[build]
+# For 01-todo app
+[[build]]
   base = "01-todo"
   publish = "dist"
   command = "npm run build"
 
-[build]
+# For 02-quote-generator app
+[[build]]
   base = "02-quote-generator"
   publish = "dist"
   command = "npm run build"
