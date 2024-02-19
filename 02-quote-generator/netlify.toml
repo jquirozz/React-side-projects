@@ -1,0 +1,4 @@
+[build]
+  base = "02-quote-generator"
+  publish = "dist"
+  command = "npm run build"
