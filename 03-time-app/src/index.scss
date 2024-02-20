@@ -1,0 +1,49 @@
+// RESET
+
+// Fonts
+@font-face {
+  font-family: "speedy";
+  src:
+    local("Speedy Regular"),
+    url("/fonts/SpeedyRegular-7BLoE.ttf") format("truetype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  user-select: none;
+
+  // font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-decoration: none;
+}
+
+body {
+  display: grid;
+  place-items: center;
+
+  color: #fff;
+  background: #000;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "speedy";
+  text-wrap: balance;
+}
+
+button,
+input,
+textarea {
+  border: none;
+  outline: none;
+}
+
+p {
+  text-wrap: pretty;
+}

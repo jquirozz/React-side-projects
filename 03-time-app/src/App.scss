@@ -1,0 +1,10 @@
+.App {
+    display: grid;
+    place-items: center;
+    grid-template-rows: 1fr auto;
+
+    gap: 1rem;
+    padding: 2rem 0.5rem;
+
+    min-height: 100svh;
+}

@@ -1,0 +1,20 @@
+.Watch {
+    display: grid;
+    place-items: center;
+    gap: 2rem;
+
+    .date {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        & h1 {
+            font-size: 8rem;
+        }
+        & h2 {
+            font-size: 1.75rem;
+            text-transform: uppercase;
+        }
+    }
+}

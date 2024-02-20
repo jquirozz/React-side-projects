@@ -1,0 +1,44 @@
+.StopWatch {
+    display: grid;
+    place-items: center;
+
+    gap: 1rem;
+
+    // Watch
+
+    .buttons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 0.75rem;
+
+        & button {
+            width: 75px;
+            aspect-ratio: 1;
+
+            cursor: pointer;
+
+            border: 1px solid #222;
+            border-radius: 50%;
+
+            color: #f5f5f5;
+            background: #000;
+
+            & svg {
+                font-size: 1.75rem;
+            }
+
+            &:nth-child(2) {
+                width: 100px;
+                & svg {
+                    font-size: 2.5rem;
+                }
+            }
+            &:hover {
+                color: #000;
+                background: #f5f5f5;
+            }
+        }
+    }
+}

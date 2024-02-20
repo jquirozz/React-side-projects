@@ -1,0 +1,26 @@
+.Clock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 0.75rem;
+    padding: 1.25rem 1.5rem;
+
+    border-radius: 999px;
+    border: 1px solid #222;
+
+    & h2,
+    input {
+        display: grid;
+        place-items: center;
+        text-align: center;
+
+        font-family: "speedy";
+        font-size: 3rem;
+        font-weight: 900;
+        width: 6rem;
+
+        color: #f5f5f5;
+        background: #000;
+    }
+}
